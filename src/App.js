@@ -2,11 +2,11 @@
 import React from 'react';
 import './App.css';
 import { Content } from './components/content';
-import { Footer } from './components/footer';
-import { Header } from './components/header';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Read } from './components/read';
+import { Create } from './components/create';
 
 // App Class - inherits from React.Component
 class App extends React.Component {
@@ -20,8 +20,8 @@ class App extends React.Component {
             <Navbar.Brand href="/">Navbar</Navbar.Brand>
             <Nav className="mr-auto">
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/sport">Sport</Nav.Link>
-              <Nav.Link href="/travel">Travel</Nav.Link>
+              <Nav.Link href="/read">Read</Nav.Link>
+              <Nav.Link href="/create">Create</Nav.Link>
             </Nav>
             <Form inline>
               <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -33,10 +33,10 @@ class App extends React.Component {
           <Switch>
             {/* Route to the home page with the Content component */}
             <Route path='/' component={Content} exact></Route>
-            {/* Route to the sport page with the Header Component */}
-            <Route path='/sport' component={Header} exact></Route>
-            {/* Route to the travel page with the Footer Component*/}
-            <Route path='/travel' component={Footer} exact></Route>
+            {/* Route to the create page with the Create Component */}
+            <Route path='/create' component={Create} exact></Route>
+            {/* Route to the read page with the Footer Component*/}
+            <Route path='/read' component={Read} exact></Route>
           </Switch>
 
           {/* Calling Header Component */}
