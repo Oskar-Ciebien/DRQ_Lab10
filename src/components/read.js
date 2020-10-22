@@ -1,7 +1,8 @@
-// Imports
+// Imports from React and Movies
 import React from 'react';
 import { Movies } from './movies';
 
+// Read Class Component - Inherits from React.Component
 export class Read extends React.Component {
 
     state = {
