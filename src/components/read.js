@@ -6,6 +6,7 @@ import axios from 'axios';
 // Read Class Component - Inherits from React.Component
 export class Read extends React.Component {
 
+    // State
     state = {
         movies: []
     };
@@ -30,6 +31,7 @@ export class Read extends React.Component {
     // Print everything to page
     render() {
         return (
+            // read.js Main Code
             <div>
                 <h3>Hello from Read Component</h3>
                 <Movies mymovies={this.state.movies}></Movies>
