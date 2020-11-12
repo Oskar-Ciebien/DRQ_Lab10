@@ -13,14 +13,16 @@ export class Read extends React.Component {
 
     componentDidMount() {
         // HTTP Axios get information
-        axios.get('https://jsonblob.com/api/jsonblob/520c3b5e-0312-11eb-a6af-cbf00d776032')
-            .then(response => {
+        axios.get('http://localhost:4000/api/movies')
+            .then((response) => {
                 // Set data retrieved to movies
                 this.setState(
                     {
-                        movies: response.data.Search
+                        movies: response.data.mymovies
                     }
                 )
+                console.log(response.data.mymovies)
+                console.log(this.state.movies)
             })
             // If error - print to console
             .catch((error) => {

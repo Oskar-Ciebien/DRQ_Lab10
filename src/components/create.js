@@ -1,5 +1,6 @@
-// Import from React
+// Import from React and Axios
 import React from 'react';
+import axios from 'axios';
 
 // Create Class Component - Inherits from React.Component
 export class Create extends React.Component {
@@ -39,7 +40,20 @@ export class Create extends React.Component {
 
     // handleSubmit() - Start
     handleSubmit(event) {
+        event.preventDefault();
         alert("Movie Added " + this.state.Title + " " + this.state.Year + " " + this.state.Poster);
+
+        // Constant newMovie
+        const newMovie = {
+            Title: this.state.Title,
+            Year: this.state.Year,
+            Poster: this.state.Poster
+        }
+
+        // Axios Post
+        axios.post('http://localhost:4000/api/movies', newMovie)
+        .then(response => console.log(response.data))
+        .catch(error => console.log(error));
     } // handleSubmit() - End
 
     // onChangeMoviePoster() - Start
