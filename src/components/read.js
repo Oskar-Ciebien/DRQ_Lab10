@@ -18,7 +18,7 @@ export class Read extends React.Component {
                 // Set data retrieved to movies
                 this.setState(
                     {
-                        movies: response.data.mymovies
+                        movies: response.data
                     }
                 )
                 console.log(response.data.mymovies)
