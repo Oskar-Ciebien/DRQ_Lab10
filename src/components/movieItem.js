@@ -1,9 +1,34 @@
 // Imports from React and React Bootstrap
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 // MovieItem Class Component - Inherits from React.Component
 export class MovieItem extends React.Component {
+
+    // Constructor
+    constructor() {
+        super();
+
+        this.DeleteMovie = this.DeleteMovie.bind(this);
+    }
+
+    // DeleteMovie Method
+    DeleteMovie(e) {
+        // Prevent method from being called all the time
+        e.preventDefault();
+
+        console.log("Delete pressed!" + this.props.mymovie._id);
+
+        axios.delete('http://localhost:4000/api/movies/' + this.props.mymovie._id)
+        .then(() => {
+            this.props.ReloadData();
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    }
 
     render() {
         return (
@@ -30,6 +55,10 @@ export class MovieItem extends React.Component {
                                 {this.props.mymovie.Year}
                             </footer>
                         </blockquote>
+                        
+                        {/* Button to delete a movie */}
+                        <Button variant="danger" onClick={this.DeleteMovie}>Delete</Button>
+
                     </Card.Body>
                 </Card>
             </div>

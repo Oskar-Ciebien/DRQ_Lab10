@@ -9,7 +9,7 @@ export class Movies extends React.Component {
         // Movies Main Code
         return this.props.mymovies.map(
             (movie)=>{
-                return <MovieItem key={movie.imdbID} mymovie={movie}></MovieItem>
+                return <MovieItem mymovie={movie} ReloadData={this.props.ReloadData}></MovieItem>
             }
         );
         // (
