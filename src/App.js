@@ -7,6 +7,7 @@ import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Read } from './components/read';
 import { Create } from './components/create';
+import { Edit } from './components/edit';
 
 // App Class - inherits from React.Component
 class App extends React.Component {
@@ -34,9 +35,11 @@ class App extends React.Component {
             {/* Route to the home page with the Content component */}
             <Route path='/' component={Content} exact></Route>
             {/* Route to the create page with the Create Component */}
-            <Route path='/create' component={Create} exact></Route>
+            <Route path='/create' component={Create}></Route>
             {/* Route to the read page with the Footer Component*/}
-            <Route path='/read' component={Read} exact></Route>
+            <Route path='/read' component={Read}></Route>
+            {/* Route to the edit page with the Edit Component*/}
+            <Route path='/edit/:id' component={Edit}></Route>
           </Switch>
 
           {/* Calling Header Component */}

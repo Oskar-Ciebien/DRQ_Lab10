@@ -1,8 +1,9 @@
-// Imports from React and React Bootstrap
+// Imports from React and React Bootstrap and Axios
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 // MovieItem Class Component - Inherits from React.Component
 export class MovieItem extends React.Component {
@@ -58,6 +59,9 @@ export class MovieItem extends React.Component {
                         
                         {/* Button to delete a movie */}
                         <Button variant="danger" onClick={this.DeleteMovie}>Delete</Button>
+
+                        {/* Edit button to edit movie */}
+                        <Link to={'/edit/'+ this.props.mymovie._id} className='btn btn-primary'>Update</Link>
 
                     </Card.Body>
                 </Card>
